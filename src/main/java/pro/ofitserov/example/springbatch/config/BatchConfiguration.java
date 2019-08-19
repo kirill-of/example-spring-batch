@@ -17,6 +17,7 @@ import org.springframework.batch.item.file.transform.DelimitedLineTokenizer;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.ClassPathResource;
+import pro.ofitserov.example.springbatch.listener.CustomStepListener;
 import pro.ofitserov.example.springbatch.model.Person;
 import pro.ofitserov.example.springbatch.processor.PersonItemProcessor;
 
@@ -58,6 +59,7 @@ public class BatchConfiguration {
                 .reader(reader)
                 .processor(processor)
                 .writer(writer)
+                .listener(new CustomStepListener())
                 .build();
     }
 
